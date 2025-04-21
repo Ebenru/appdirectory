@@ -1,11 +1,99 @@
-@import 'tailwindcss';
+/* resources/css/app.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
-@source '../../storage/framework/views/*.php';
-@source '../**/*.blade.php';
-@source '../**/*.js';
+@layer base {
+  :root {
+    /* Light Mode Colors - Red Theme */
+    --background: 0 0% 100%; /* white */
+    --foreground: 222.2 84% 4.9%; /* zinc-950 */
 
-@theme {
-    --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
-        'Segoe UI Symbol', 'Noto Color Emoji';
+    --card: 0 0% 100%; /* white */
+    --card-foreground: 222.2 84% 4.9%; /* zinc-950 */
+
+    --popover: 0 0% 100%; /* white */
+    --popover-foreground: 222.2 84% 4.9%; /* zinc-950 */
+
+    --primary: 222.2 47.4% 11.2%; /* red-600 */
+    --primary-foreground: 210 40% 98%; /* zinc-50 */
+
+    --secondary: 210 40% 96.1%; /* zinc-100 (switched from red for more typical secondary) */
+    --secondary-foreground: 222.2 47.4% 11.2%; /* zinc-900 */
+
+    --muted: 210 40% 96.1%; /* zinc-100 */
+    --muted-foreground: 215.4 16.3% 46.9%; /* zinc-500 */
+
+    --accent: 210 40% 96.1%; /* zinc-100 */
+    --accent-foreground: 222.2 47.4% 11.2%; /* zinc-900 */
+
+    --destructive: 0 84.2% 60.2%; /* red-500 */
+    --destructive-foreground: 210 40% 98%; /* zinc-50 */
+
+    --border: 214.3 31.8% 91.4%; /* zinc-200 */
+    --input: 214.3 31.8% 91.4%; /* zinc-200 */
+    --ring: 222.2 84% 4.9%; /* red-600 */
+
+    --radius: 0.5rem; /* Default radius */ --chart-1: 12 76% 61%; --chart-2: 173 58% 39%; --chart-3: 197 37% 24%; --chart-4: 43 74% 66%; --chart-5: 27 87% 67%;
+  }
+
+  .dark {
+    /* Dark Mode Colors - Red Theme */
+    --background: 222.2 84% 4.9%; /* zinc-950 */
+    --foreground: 210 40% 98%; /* zinc-50 */
+
+    --card: 222.2 84% 4.9%; /* zinc-950 */
+    --card-foreground: 210 40% 98%; /* zinc-50 */
+
+    --popover: 222.2 84% 4.9%; /* zinc-950 */
+    --popover-foreground: 210 40% 98%; /* zinc-50 */
+
+    /* Using a slightly lighter red for dark mode primary often looks better */
+    --primary: 210 40% 98%; /* red-500 */
+    --primary-foreground: 222.2 47.4% 11.2%; /* red-50 */
+
+    /* Darker secondary background, light text */
+    --secondary: 217.2 32.6% 17.5%; /* zinc-800 */
+    --secondary-foreground: 210 40% 98%; /* zinc-50 */
+
+    --muted: 217.2 32.6% 17.5%; /* zinc-800 */
+    --muted-foreground: 215 20.2% 65.1%; /* zinc-400 */
+
+    --accent: 217.2 32.6% 17.5%; /* zinc-800 */
+    --accent-foreground: 210 40% 98%; /* zinc-50 */
+
+    /* Using a slightly less intense red for dark mode destructive */
+    --destructive: 0 62.8% 30.6%; /* red-600 */
+    --destructive-foreground: 210 40% 98%; /* zinc-50 */
+
+    --border: 217.2 32.6% 17.5%; /* zinc-800 */
+    --input: 217.2 32.6% 17.5%; /* zinc-800 */
+    /* Brighter ring color for dark mode */
+    --ring: 212.7 26.8% 83.9%; /* red-500 */
+    
+    /* --radius is inherited from :root */
+    
+    --chart-1: 220 70% 50%;
+    
+    --chart-2: 160 60% 45%;
+    
+    --chart-3: 30 80% 55%;
+    
+    --chart-4: 280 65% 60%;
+    
+    --chart-5: 340 75% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    /* Tailwind Preflight includes font smoothing, but you can specify here if needed */
+    /* -webkit-font-smoothing: antialiased; */
+    /* -moz-osx-font-smoothing: grayscale; */
+    font-feature-settings: "rlig" 1, "calt" 1; /* Enable common ligatures and contextual alternates */
+  }
 }
